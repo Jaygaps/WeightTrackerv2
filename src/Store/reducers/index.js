@@ -1,6 +1,3 @@
-import { combineReducers } from "redux";
-import { dataSet } from "./reducers";
+import { userData } from "./reducers";
 
-export default combineReducers({
-  dataSet
-});
+export default userData;

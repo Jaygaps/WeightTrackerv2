@@ -10,8 +10,8 @@ import Dashboard from "./Dashboard";
 
 function Home() {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.dataSet.userData.user);
-  const usersStatus = useSelector((state) => state.dataSet.userData.status);
+  const userData = useSelector((state) => state.user);
+  const userStatus = useSelector((state) => state.status);
 
   const GlobalStyle = createGlobalStyle`
   body {
@@ -28,15 +28,8 @@ function Home() {
     <div className="Home">
       <GlobalStyle />
       <Header />
-      <Dashboard />
+      <Dashboard userStatus={userStatus} userData={userData} />
       <p>users list below:</p>
-      <div>
-        {usersStatus === "initalised"
-          ? users.map((user) => {
-              return <div key={user.id}>{user.name}</div>;
-            })
-          : "something went wrong"}
-      </div>
     </div>
   );
 }
